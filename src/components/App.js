@@ -1,10 +1,11 @@
-import "./App.css";
+import React from "react";
 import NavBar from "./NavBar";
 import HomePage from "./HomePage";
 import SubSectionPage from "./SubSectionPage";
 import ArticlePage from "./ArticlePage";
 import NoMatch from "./NoMatch";
 import { Routes, Route } from "react-router-dom";
+import "./App.css";
 
 const App = () => {
   return (
