@@ -10,21 +10,28 @@ import apiCalls from "../apiCalls";
 
 const App = () => {
   const [currentArticleList, setArticleList] = useState([]);
+  const [currentArticleSection, setArticleSection] = useState("home");
 
   useEffect(() => {
-    apiCalls.getArticles(`home`).then((data) => setArticleList(data.results));
-  }, []);
+    apiCalls
+      .getArticles(currentArticleSection)
+      .then((data) => setArticleList(data.results));
+  }, [currentArticleSection]);
 
   return (
     <main>
-      <NavBar setArticleList={setArticleList} />
+      <NavBar setArticleSection={setArticleSection} />
       <Routes>
         <Route
           exact
           path="/"
           element={<HomePage articles={currentArticleList} />}
         />
-        <Route exact path="section/:sectionName" element={<SubSectionPage />} />
+        <Route
+          exact
+          path="section/:sectionName"
+          element={<SubSectionPage articles={currentArticleList} />}
+        />
         <Route exact path="article/:articleId" element={<ArticlePage />} />
         <Route exact path="*" element={<NoMatch />} />
       </Routes>
