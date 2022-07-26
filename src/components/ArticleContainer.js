@@ -1,18 +1,20 @@
 import React from "react";
 import ArticlePreview from "./ArticlePreview";
 
-const ArticleContainer = ({ data }) => {
-  const articles = data.map((article) => {
+const ArticleContainer = ({ articles }) => {
+  const articleList = articles.map((article) => {
     return (
       <ArticlePreview
-        name={article.name}
-        description={article.description}
-        key={article.id}
+        title={article.title}
+        abstract={article.abstract}
+        section={article.section}
+        subsection={article.subsection}
+        key={Math.random()}
       />
     );
   });
 
-  return <div>{articles}</div>;
+  return <div>{articleList}</div>;
 };
 
 export default ArticleContainer;
