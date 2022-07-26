@@ -1,7 +1,12 @@
 import React from "react";
+import ArticleContainer from "./ArticleContainer";
 
-const SubSectionPage = () => {
-  return <h1>SubSectionPage</h1>;
+const SubSectionPage = ({ articles }) => {
+  return (
+    <section>
+      <ArticleContainer articles={articles} />
+    </section>
+  );
 };
 
 export default SubSectionPage;
