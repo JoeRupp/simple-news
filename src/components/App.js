@@ -7,6 +7,7 @@ import NoMatch from "./NoMatch";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import apiCalls from "../apiCalls";
+import styled from "styled-components";
 
 const App = () => {
   const [currentArticleList, setArticleList] = useState([]);
@@ -19,7 +20,7 @@ const App = () => {
   }, [currentArticleSection]);
 
   return (
-    <main>
+    <Main>
       <NavBar setArticleSection={setArticleSection} />
       <Routes>
         <Route
@@ -35,8 +36,14 @@ const App = () => {
         <Route exact path="article/:articleId" element={<ArticlePage />} />
         <Route exact path="*" element={<NoMatch />} />
       </Routes>
-    </main>
+    </Main>
   );
 };
 
 export default App;
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
