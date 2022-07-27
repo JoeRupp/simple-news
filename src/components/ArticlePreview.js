@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ArticlePreview = ({
   title,
@@ -11,7 +12,7 @@ const ArticlePreview = ({
 }) => {
   if (!image) {
     return (
-      <NewsCardNoImage>
+      <NewsCardNoImage style={{ textDecoration: "none" }} to={`/article/${id}`}>
         <IdAndSectionDiv>
           <SubTitle>{id + 1}</SubTitle>
           <SubTitle>{`${section} ${subsection}`}</SubTitle>
@@ -26,7 +27,7 @@ const ArticlePreview = ({
     );
   } else {
     return (
-      <NewsCard>
+      <NewsCard style={{ textDecoration: "none" }} to={`/article/${id}`}>
         <IdAndSectionDiv>
           <SubTitle>{id + 1}</SubTitle>
           <SubTitle>{`${section} ${subsection}`}</SubTitle>
@@ -45,30 +46,68 @@ const ArticlePreview = ({
 
 export default ArticlePreview;
 
-const NewsCard = styled.div`
-  padding: 10px 20px 10px 20px;
+const NewsCard = styled(Link)`
+  color: black;
+  padding: 10px 20px 10px 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 20px;
   border-left: black solid 1.5px;
+  display: inline-block;
+  position: relative;
   &:hover {
     cursor: pointer;
     color: #35aad6;
-    border: 0;
+    border-left: #35aad6 solid 1.5px;
+  }
+  &:after {
+    background-color: #35aad6;
+    left: 0;
+    content: "";
+    width: 6px;
+    bottom: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left bottom;
+    transition: transform 0.25s ease-out;
+    height: 100%;
+  }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: left bottom;
   }
 `;
 
-const NewsCardNoImage = styled.div`
-  padding: 10px 20px 10px 20px;
+const NewsCardNoImage = styled(Link)`
+  color: black;
+  padding: 10px 20px 10px 30px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
   border-left: black solid 1.5px;
+  display: inline-block;
+  position: relative;
   &:hover {
     cursor: pointer;
     color: #35aad6;
-    border: 0;
+    border-left: #35aad6 solid 1.5px;
+  }
+  &:after {
+    background-color: #35aad6;
+    left: 0;
+    content: "";
+    width: 6px;
+    bottom: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left bottom;
+    transition: transform 0.25s ease-out;
+    height: 100%;
+  }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: left bottom;
   }
 `;
 
@@ -89,11 +128,10 @@ const Img = styled.img`
   height: 100%;
   max-height: 275px;
   object-fit: cover;
+  margin-right: 5%;
 `;
 
-const InfoContainer = styled.div`
-  padding-left: 5%;
-`;
+const InfoContainer = styled.div``;
 
 const SubTitle = styled.h3`
   color: lightgrey;
