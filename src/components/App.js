@@ -19,6 +19,10 @@ const App = () => {
       .then((data) => setArticleList(data.results));
   }, [currentArticleSection]);
 
+  const getArticle = (id) => {
+    return currentArticleList.find((article, index) => index === parseInt(id));
+  };
+
   return (
     <Main>
       <NavBar setArticleSection={setArticleSection} />
@@ -33,7 +37,11 @@ const App = () => {
           path="section/:sectionName"
           element={<SubSectionPage articles={currentArticleList} />}
         />
-        <Route exact path="article/:articleId" element={<ArticlePage />} />
+        <Route
+          exact
+          path="article/:articleId"
+          element={<ArticlePage getArticle={getArticle} />}
+        />
         <Route exact path="*" element={<NoMatch />} />
       </Routes>
     </Main>

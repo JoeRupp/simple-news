@@ -13,9 +13,16 @@ const ArticlePage = ({ getArticle }) => {
 
   return (
     <ArticleSection>
-      {/* <Img src={article.url} alt={article.caption} /> */}
-      <Headline></Headline>
-      <ArticleInfo>Lorem Ispsum</ArticleInfo>
+      <ArticleDate>{article.updated_date}</ArticleDate>
+      {article.multimedia && (
+        <Img
+          src={article.multimedia[0].url}
+          alt={article.multimedia[0].caption}
+        />
+      )}
+      <Headline>{article.title}</Headline>
+      <Byline>{article.byline}</Byline>
+      <ArticleInfo>{article.abstract}</ArticleInfo>
       <BtnToArticle>Read the full article</BtnToArticle>
     </ArticleSection>
   );
@@ -25,9 +32,13 @@ export default ArticlePage;
 
 const ArticleSection = styled.section``;
 
+const ArticleDate = styled.p``;
+
 const Img = styled.img``;
 
 const Headline = styled.h2``;
+
+const Byline = styled.h3``;
 
 const ArticleInfo = styled.p``;
 
