@@ -4,9 +4,11 @@ import styled from "styled-components";
 
 const ArticleContainer = ({ articles }) => {
   const articleList = articles.map((article, index) => {
+    const pic = article.multimedia ? article.multimedia[0] : null;
+
     return (
       <ArticlePreview
-        image={article.multimedia[0]}
+        image={pic}
         title={article.title}
         abstract={article.abstract}
         section={article.section}
