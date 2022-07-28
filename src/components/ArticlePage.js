@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
-// import { format } from "date-fns";
+import moment from "moment";
 
 const ArticlePage = ({ getArticle }) => {
   const { articleId } = useParams();
@@ -23,7 +23,9 @@ const ArticlePage = ({ getArticle }) => {
       <Headline>{article.title}</Headline>
       <InfoContainer>
         <Byline>{article.byline}</Byline>
-        <ArticleDate>{article.updated_date}</ArticleDate>
+        <ArticleDate>
+          {moment(article.updated_date).subtract(6, "days").calendar()}
+        </ArticleDate>
       </InfoContainer>
       <ArticleInfo>{article.abstract}</ArticleInfo>
       {article.url && (
@@ -59,6 +61,9 @@ const Img = styled.img`
   height: 50vh;
   width: 70%;
   object-fit: cover;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -66,13 +71,18 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const Headline = styled.h2`
   font-weight: 800;
+  text-align: center;
 `;
 
 const Byline = styled.h3`
+  color: lightgrey;
   margin: 0;
   margin-right: 5%;
 `;
