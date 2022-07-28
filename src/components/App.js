@@ -5,7 +5,6 @@ import SubSectionPage from "./SubSectionPage";
 import ArticlePage from "./ArticlePage";
 import NoMatch from "./NoMatch";
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
 import apiCalls from "../apiCalls";
 import styled from "styled-components";
 

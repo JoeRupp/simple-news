@@ -180,7 +180,7 @@ export default NavBar;
 
 const Header = styled.h1`
   font-size: 35px;
-  font-weight: bold;
+  font-weight: 800;
 `;
 
 const Nav = styled.nav`
@@ -213,9 +213,6 @@ const NavigationLink = styled(NavLink)`
   &:hover {
     cursor: pointer;
     color: #35aad6;
-    transform: scale(1.2);
-    border: 0;
+    background-color: black;
   }
 `;
-
-//    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;

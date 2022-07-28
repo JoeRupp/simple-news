@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
+// import { format } from "date-fns";
 
 const ArticlePage = ({ getArticle }) => {
   const { articleId } = useParams();
@@ -9,11 +10,10 @@ const ArticlePage = ({ getArticle }) => {
 
   useEffect(() => {
     setArticle(getArticle(articleId));
-  }, [article]);
+  }, [articleId]);
 
   return (
     <ArticleSection>
-      <ArticleDate>{article.updated_date}</ArticleDate>
       {article.multimedia && (
         <Img
           src={article.multimedia[0].url}
@@ -21,25 +21,83 @@ const ArticlePage = ({ getArticle }) => {
         />
       )}
       <Headline>{article.title}</Headline>
-      <Byline>{article.byline}</Byline>
+      <InfoContainer>
+        <Byline>{article.byline}</Byline>
+        <ArticleDate>{article.updated_date}</ArticleDate>
+      </InfoContainer>
       <ArticleInfo>{article.abstract}</ArticleInfo>
-      <BtnToArticle>Read the full article</BtnToArticle>
+      {article.url && (
+        <BtnToArticle
+          style={{ textDecoration: "none" }}
+          href={`${article.url}`}
+          target="_blank"
+        >
+          Read the full article
+        </BtnToArticle>
+      )}
     </ArticleSection>
   );
 };
 
 export default ArticlePage;
 
-const ArticleSection = styled.section``;
+const ArticleSection = styled.section`
+  margin-top: 45px;
+  margin-bottom: 45px;
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-const ArticleDate = styled.p``;
+const ArticleDate = styled.p`
+  color: lightgrey;
+  margin: 0;
+`;
 
-const Img = styled.img``;
+const Img = styled.img`
+  height: 50vh;
+  width: 70%;
+  object-fit: cover;
+`;
 
-const Headline = styled.h2``;
+const InfoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-const Byline = styled.h3``;
+const Headline = styled.h2`
+  font-weight: 800;
+`;
 
-const ArticleInfo = styled.p``;
+const Byline = styled.h3`
+  margin: 0;
+  margin-right: 5%;
+`;
 
-const BtnToArticle = styled.button``;
+const ArticleInfo = styled.p`
+  text-align: center;
+  width: 70%;
+`;
+
+const BtnToArticle = styled.a`
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  border: 0;
+  border-right: black solid 1.5px;
+  border-left: black solid 1.5px;
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  &:hover {
+    cursor: pointer;
+    color: #35aad6;
+    background-color: black;
+  }
+`;
