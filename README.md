@@ -17,7 +17,7 @@ Subsection page:
 ![Screen Shot 2022-07-27 at 11 27 52 PM](https://user-images.githubusercontent.com/96392562/181427768-951144fb-7b39-44d0-a338-96f4a6629677.png)
 
 Article page:
-![Screen Shot 2022-07-27 at 11 28 51 PM](https://user-images.githubusercontent.com/96392562/181427783-f8ef0c48-fb7b-4eac-8d8d-a7d2f12dfc7b.png)
+![Screen Shot 2022-07-28 at 9 44 25 AM](https://user-images.githubusercontent.com/96392562/181581677-a69980a0-67d9-4eda-94f1-7cde6730bdf2.png)
 
 ## Set Up:
 
