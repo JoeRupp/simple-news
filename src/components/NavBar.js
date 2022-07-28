@@ -2,8 +2,43 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+const subsections = [
+  { headline: "Art", button: "arts" },
+  { headline: "Auto", button: "automobiles" },
+  { headline: "Book", button: "books" },
+  { headline: "Business", button: "business" },
+  { headline: "Fashion", button: "fashion" },
+  { headline: "Food", button: "food" },
+  { headline: "Health", button: "health" },
+  { headline: "Film", button: "movies" },
+  { headline: "Opinion", button: "opinion" },
+  { headline: "Politics", button: "politics" },
+  { headline: "Science", button: "science" },
+  { headline: "Sports", button: "sports" },
+  { headline: "Tech", button: "technology" },
+  { headline: "Theater", button: "theater" },
+  { headline: "Travel", button: "travel" },
+  { headline: "US", button: "us" },
+  { headline: "World", button: "world" },
+];
+
 const NavBar = ({ setArticleSection }) => {
   const [currentNews, setCurrentNews] = useState("Simple");
+
+  const navLinks = subsections.map((section, index) => {
+    return (
+      <NavigationLink
+        to={`section/${section.button}`}
+        onClick={() => {
+          setCurrentNews(section.headline);
+          setArticleSection(section.button);
+        }}
+        key={index}
+      >
+        {section.headline}
+      </NavigationLink>
+    );
+  });
 
   return (
     <Nav>
@@ -16,161 +51,9 @@ const NavBar = ({ setArticleSection }) => {
             setArticleSection("home");
           }}
         >
-          home
+          Home
         </NavigationLink>
-        <NavigationLink
-          to="section/art"
-          onClick={() => {
-            setCurrentNews("Art");
-            setArticleSection("arts");
-          }}
-        >
-          art
-        </NavigationLink>
-        <NavigationLink
-          to="section/automobiles"
-          onClick={() => {
-            setCurrentNews("Auto");
-            setArticleSection("automobiles");
-          }}
-        >
-          auto
-        </NavigationLink>
-        <NavigationLink
-          to="section/books"
-          onClick={() => {
-            setCurrentNews("Book");
-            setArticleSection("books");
-          }}
-        >
-          books
-        </NavigationLink>
-        <NavigationLink
-          to="section/business"
-          onClick={() => {
-            setCurrentNews("Business");
-            setArticleSection("business");
-          }}
-        >
-          business
-        </NavigationLink>
-        <NavigationLink
-          to="section/fashion"
-          onClick={() => {
-            setCurrentNews("Fashion");
-            setArticleSection("fashion");
-          }}
-        >
-          fashion
-        </NavigationLink>
-        <NavigationLink
-          to="section/food"
-          onClick={() => {
-            setCurrentNews("Food");
-            setArticleSection("food");
-          }}
-        >
-          food
-        </NavigationLink>
-        <NavigationLink
-          to="section/health"
-          onClick={() => {
-            setCurrentNews("Health");
-            setArticleSection("health");
-          }}
-        >
-          health
-        </NavigationLink>
-        <NavigationLink
-          to="section/movies"
-          onClick={() => {
-            setCurrentNews("Film");
-            setArticleSection("movies");
-          }}
-        >
-          movies
-        </NavigationLink>
-        <NavigationLink
-          to="section/opinion"
-          onClick={() => {
-            setCurrentNews("Opinion");
-            setArticleSection("opinion");
-          }}
-        >
-          opinion
-        </NavigationLink>
-        <NavigationLink
-          to="section/politics"
-          onClick={() => {
-            setCurrentNews("Political");
-            setArticleSection("politics");
-          }}
-        >
-          politics
-        </NavigationLink>
-        <NavigationLink
-          to="section/science"
-          onClick={() => {
-            setCurrentNews("Science");
-            setArticleSection("science");
-          }}
-        >
-          science
-        </NavigationLink>
-        <NavigationLink
-          to="section/sports"
-          onClick={() => {
-            setCurrentNews("Sports");
-            setArticleSection("sports");
-          }}
-        >
-          sports
-        </NavigationLink>
-        <NavigationLink
-          to="section/technology"
-          onClick={() => {
-            setCurrentNews("Tech");
-            setArticleSection("technology");
-          }}
-        >
-          tech
-        </NavigationLink>
-        <NavigationLink
-          to="section/theater"
-          onClick={() => {
-            setCurrentNews("Theater");
-            setArticleSection("theater");
-          }}
-        >
-          theater
-        </NavigationLink>
-        <NavigationLink
-          to="section/travel"
-          onClick={() => {
-            setCurrentNews("Travel");
-            setArticleSection("travel");
-          }}
-        >
-          travel
-        </NavigationLink>
-        <NavigationLink
-          to="section/us"
-          onClick={() => {
-            setCurrentNews("US");
-            setArticleSection("us");
-          }}
-        >
-          us
-        </NavigationLink>
-        <NavigationLink
-          to="section/world"
-          onClick={() => {
-            setCurrentNews("World");
-            setArticleSection("world");
-          }}
-        >
-          world
-        </NavigationLink>
+        {navLinks}
       </BtnContainer>
     </Nav>
   );
