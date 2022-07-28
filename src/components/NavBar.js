@@ -78,6 +78,12 @@ const BtnContainer = styled.div`
   grid-template-rows: auto;
   grid-gap: 10px;
   width: 85vw;
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const NavigationLink = styled(NavLink)`
