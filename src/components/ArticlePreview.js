@@ -120,6 +120,9 @@ const IdAndSectionDiv = styled.div`
 const CardContents = styled.div`
   display: flex;
   align-items: flex-start;
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 const Img = styled.img`
