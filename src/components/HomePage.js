@@ -1,12 +1,21 @@
 import React from "react";
 import ArticleContainer from "./ArticleContainer";
+import styled from "styled-components";
 
 const HomePage = ({ articles }) => {
   return (
-    <section>
+    <HomeSection>
       <ArticleContainer articles={articles} />
-    </section>
+    </HomeSection>
   );
 };
 
 export default HomePage;
+
+const HomeSection = styled.section`
+  margin-top: 45px;
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
