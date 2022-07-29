@@ -28,6 +28,7 @@ const NavBar = ({ setArticleSection }) => {
   const navLinks = subsections.map((section, index) => {
     return (
       <NavigationLink
+        className="nav-btn"
         to={`section/${section.button}`}
         onClick={() => {
           setCurrentNews(section.headline);
@@ -45,6 +46,7 @@ const NavBar = ({ setArticleSection }) => {
       <Header>{`${currentNews} News`}</Header>
       <BtnContainer>
         <NavigationLink
+          className="nav-btn"
           to="/"
           onClick={() => {
             setCurrentNews("Simple");
