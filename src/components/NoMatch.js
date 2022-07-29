@@ -5,10 +5,10 @@ const NoMatch = () => {
   return (
     <NoMatchSection>
       <h1>404</h1>
-      <h3>
+      <p>
         We couldn't find what you were looking for - try something different I
         guess?
-      </h3>
+      </p>
     </NoMatchSection>
   );
 };

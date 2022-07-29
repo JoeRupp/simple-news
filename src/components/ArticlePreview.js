@@ -136,7 +136,7 @@ const Img = styled.img`
 
 const InfoContainer = styled.div``;
 
-const SubTitle = styled.h3`
+const SubTitle = styled.h2`
   color: lightgrey;
   margin-top: 0;
   margin-right: 2%;
