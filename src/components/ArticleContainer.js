@@ -19,7 +19,7 @@ const ArticleContainer = ({ articles }) => {
     );
   });
 
-  return <Container>{articleList}</Container>;
+  return <Container className="article-container">{articleList}</Container>;
 };
 
 export default ArticleContainer;

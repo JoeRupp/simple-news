@@ -22,7 +22,7 @@ const ArticlePage = ({ getArticle }) => {
       )}
       <Headline>{article.title}</Headline>
       <InfoContainer>
-        <Byline>{article.byline}</Byline>
+        <Byline className="byline">{article.byline}</Byline>
         <ArticleDate>
           {moment(article.updated_date).subtract(6, "days").calendar()}
         </ArticleDate>
@@ -30,6 +30,7 @@ const ArticlePage = ({ getArticle }) => {
       <ArticleInfo>{article.abstract}</ArticleInfo>
       {article.url && (
         <BtnToArticle
+          className="btn-to-article"
           style={{ textDecoration: "none" }}
           href={`${article.url}`}
           target="_blank"
