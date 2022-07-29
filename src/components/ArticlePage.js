@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import moment from "moment";
 
@@ -10,7 +10,7 @@ const ArticlePage = ({ getArticle }) => {
 
   useEffect(() => {
     setArticle(getArticle(articleId));
-  }, [articleId]);
+  }, [articleId, getArticle]);
 
   return (
     <ArticleSection>
