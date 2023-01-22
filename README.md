@@ -8,7 +8,7 @@ Simple News is an application displaying news articles from the New York Times. 
 
 [Original project spec](https://mod4.turing.edu/projects/take_home/take_home_fe)
 
-[Deployed App](https://lustrous-chaja-ba69b3.netlify.app/)
+[Deployed App](https://joerupp-simple-news.netlify.app/)
 
 ## Set Up:
 
